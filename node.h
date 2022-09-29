@@ -1,5 +1,8 @@
+#ifndef _NODE_
+#define _NODE_
+
 #include <iostream>
-#include <vectors>
+#include <vector>
 #include <utility>
 using namespace std;
 
@@ -16,3 +19,5 @@ public:
   {
   }
 };
+
+#endif //_NODE_
