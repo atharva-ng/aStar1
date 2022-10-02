@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <queue>
 #include "node.h"
 #include "coordinates.h"
 
@@ -99,7 +100,8 @@ int main()
   currPos = start;
   end = make_pair(1, 1);
 
-  node startNode(nullptr, start, 99999);
+  node startNode(nullptr, start, 0);
+  priority_queue<int, vector<int>, greater<int>> numbers;
 
   // emptyBlocks.print();
   while (currPos != end)
