@@ -93,10 +93,22 @@ int main()
   };
   setGrid(grid);
 
-  pair<int, int> currPos;
-  currPos = make_pair(1, 8);
+  pair<int, int> currPos, start, end;
 
-  coordinates emptyBlocks;
-  Neighbour(emptyBlocks, grid, currPos);
-  emptyBlocks.print();
+  start = make_pair(1, 8);
+  currPos = start;
+  end = make_pair(1, 1);
+
+  node startNode(nullptr, start, 99999);
+
+  // emptyBlocks.print();
+  while (currPos != end)
+  {
+    coordinates emptyBlocks;
+    Neighbour(emptyBlocks, grid, currPos);
+    for (const auto &k : emptyBlocks.coordinatesVec)
+    {
+      cout << k.first << k.second << endl;
+    }
+  }
 }
