@@ -101,13 +101,14 @@ int main()
   end = make_pair(1, 1);
 
   node startNode(nullptr, start, 0);
-  priority_queue<int, vector<int>, greater<int>> numbers;
+  priority_queue<node, vector<node>, greater<node>> nodes;
+  nodes.push(startNode);
 
-  // emptyBlocks.print();
   while (currPos != end)
   {
     coordinates emptyBlocks;
     Neighbour(emptyBlocks, grid, currPos);
+
     for (const auto &k : emptyBlocks.coordinatesVec)
     {
       cout << k.first << k.second << endl;
