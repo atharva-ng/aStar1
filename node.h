@@ -17,8 +17,15 @@ public:
   node(node *parenti, pair<int, int> positioni, float costi)
       : parent(parenti), position(positioni), cost(costi)
   {
-    visited = true;
   }
+
+  // bool operator=(const node &rhs) const
+  // {
+  //   this->parent = rhs.parent;
+  //   this->visited = rhs.visited;
+  //   this->position = rhs.position;
+  //   this->cost = rhs.cost;
+  // }
 
   bool operator>(const node &rhs) const
   {

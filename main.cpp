@@ -2,6 +2,8 @@
 #include <vector>
 #include <utility>
 #include <queue>
+#include <algorithm>
+#include <iterator>
 #include "node.h"
 #include "coordinates.h"
 
@@ -94,24 +96,24 @@ int main()
   };
   setGrid(grid);
 
-  pair<int, int> currPos, start, end;
-
+  pair<int, int> start, end;
   start = make_pair(1, 8);
-  currPos = start;
   end = make_pair(1, 1);
 
   node startNode(nullptr, start, 0);
-  priority_queue<node, vector<node>, greater<node>> nodes;
-  nodes.push(startNode);
+  coordinates emptyBlocks;
+  // priority_queue<node, vector<node>, greater<node>> nodes;
 
-  while (currPos != end)
+  vector<node> nodes;
+  nodes.push_back(startNode);
+
+  while (nodes.empty() != 1)
   {
-    coordinates emptyBlocks;
-    Neighbour(emptyBlocks, grid, currPos);
+    sort(nodes.begin(), nodes.end());
+    Neighbour(emptyBlocks, grid, nodes.at(0).position);
+    // for (const auto &pos : emptyBlocks.coordinatesVec)
+    // {
 
-    for (const auto &k : emptyBlocks.coordinatesVec)
-    {
-      cout << k.first << k.second << endl;
-    }
+    // }
   }
 }
